@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+@layer base {
+  body {
+    @apply bg-cyber-black text-white font-mono overflow-x-hidden;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-cyber-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cyber-light rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neon-green-dim;
+  }
+}
+
+@layer components {
+  .cyber-panel {
+    @apply bg-cyber-dark border border-neon-green/40 shadow-lg rounded-md 
+           relative overflow-hidden backdrop-blur-sm;
+  }
+  
+  .cyber-panel::before {
+    content: "";
+    @apply absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-neon-green to-transparent;
+  }
+
+  .scanline {
+    @apply pointer-events-none fixed inset-0 w-full h-full z-[60] bg-cyber-black opacity-[0.03];
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(0, 255, 157, 0.05) 50%);
+    background-size: 100% 4px;
+    animation: scanline 10s linear infinite;
+  }
+
+  .terminal-text {
+    @apply font-mono text-neon-green;
+  }
+
+  .loading-dots::after {
+    content: '';
+    animation: loading 1.5s infinite;
+  }
+
+  .map-container {
+    @apply w-full h-full rounded-lg overflow-hidden border border-neon-green/30;
+  }
+
+  .terminal-input {
+    @apply bg-cyber-gray text-neon-green border border-neon-green/50 px-3 py-2 rounded
+           focus:outline-none focus:ring-1 focus:ring-neon-green font-mono placeholder-neon-green/30;
+  }
+
+  .cyber-button {
+    @apply flex items-center justify-center gap-2 bg-cyber-gray border border-neon-green 
+           text-neon-green px-4 py-2 rounded font-mono hover:bg-neon-green hover:text-cyber-black 
+           transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-neon-green/50;
+  }
+
+  .cyber-tab {
+    @apply px-4 py-2 border-b-2 transition-colors duration-200 font-mono text-sm;
+  }
+
+  .cyber-tab.active {
+    @apply border-neon-green text-neon-green;
+  }
+
+  .cyber-tab.inactive {
+    @apply border-transparent text-gray-500 hover:text-gray-300 hover:border-neon-green/30;
+  }
+}
+
+@keyframes loading {
+  0% { content: '.'; }
+  33% { content: '..'; }
+  66% { content: '...'; }
+}
+
+/* Leaflet Map Custom Styling */
+.leaflet-container {
+  @apply bg-cyber-dark !important;
+}
+
+.leaflet-tile {
+  filter: invert(1) hue-rotate(200deg) brightness(0.8) contrast(1.4) !important;
+}
+
+.leaflet-control {
+  @apply !bg-cyber-gray !text-white !border-neon-green/50;
+}
+
+.leaflet-bar a {
+  @apply !bg-cyber-gray !text-neon-green;
+}
