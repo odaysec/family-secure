@@ -1,4 +1,4 @@
-# FamilySecure | Home Location Tracker
+# FamilySecure | Home Location 
 
 ![FamilySecure Banner](.jpeg)
 
@@ -55,8 +55,8 @@ A secure family location tracking system built with React, TypeScript, and Leafl
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/odaysec/family-secure-tracker.git
-cd family-secure-tracker
+git clone https://github.com/odaysec/family-secure.git
+cd family-secure
 ```
 
 2. Install dependencies:
